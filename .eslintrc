@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "func-names": ["error", "as-needed"],
+    "@typescript-eslint/ban-types": "off"
+  },
+  "overrides": [
+    {
+      "files": "webpack.config.*.js",
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ]
+}
