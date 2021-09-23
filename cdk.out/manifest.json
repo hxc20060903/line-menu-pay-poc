@@ -1,0 +1,1197 @@
+{
+  "version": "13.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "kun-server-development": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://322174828705/ap-northeast-1",
+      "properties": {
+        "templateFile": "kun-server-development.template.json",
+        "validateOnSynth": false
+      },
+      "metadata": {
+        "/kun-server-development": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4",
+              "id": "7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4",
+              "packaging": "zip",
+              "sourceHash": "7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4",
+              "s3BucketParameter": "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4S3Bucket5BEBDCBE",
+              "s3KeyParameter": "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4S3VersionKey326451BC",
+              "artifactHashParameter": "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4ArtifactHash5E28809B"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/construct-compat.ts:252:92)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:161:23)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:66:19)",
+              "IacStack.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack.ts:355:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:70:25)",
+              "new Asset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:86:40)",
+              "AssetCode.bind (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/code.ts:180:20)",
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:331:29)",
+              "new DnsValidatedCertificate (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-certificatemanager/lib/dns-validated-certificate.ts:53:31)",
+              "createAcm (/Users/huangxiaochun/workspace/kun/server/iac/acm/index.ts:8:28)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:18:72)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          },
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8",
+              "id": "8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8",
+              "packaging": "zip",
+              "sourceHash": "8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8",
+              "s3BucketParameter": "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3Bucket3A65C0E9",
+              "s3KeyParameter": "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3VersionKey7A14AC2F",
+              "artifactHashParameter": "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8ArtifactHashA6D9BB1A"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/construct-compat.ts:252:92)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:161:23)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:66:19)",
+              "IacStack.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack.ts:355:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:70:25)",
+              "new Asset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:86:40)",
+              "AssetCode.bind (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/code.ts:180:20)",
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:331:29)",
+              "createSignUp (/Users/huangxiaochun/workspace/kun/server/iac/lambda/signUp.ts:16:18)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:20:56)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/cdn-cert/CertificateRequestorFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cdncertCertificateRequestorFunctionServiceRole168BB976",
+            "trace": [
+              "new Role (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-iam/lib/role.ts:199:18)",
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:311:31)",
+              "new DnsValidatedCertificate (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-certificatemanager/lib/dns-validated-certificate.ts:53:31)",
+              "createAcm (/Users/huangxiaochun/workspace/kun/server/iac/acm/index.ts:8:28)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:18:72)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/cdn-cert/CertificateRequestorFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cdncertCertificateRequestorFunctionServiceRoleDefaultPolicy3E1BAC39",
+            "trace": [
+              "new Policy (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-iam/lib/policy.ts:89:22)",
+              "Role.addToPrincipalPolicy (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-iam/lib/role.ts:236:28)",
+              "Function.addToRolePolicy (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:146:15)",
+              "new DnsValidatedCertificate (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-certificatemanager/lib/dns-validated-certificate.ts:60:23)",
+              "createAcm (/Users/huangxiaochun/workspace/kun/server/iac/acm/index.ts:8:28)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:18:72)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/cdn-cert/CertificateRequestorFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cdncertCertificateRequestorFunctionBA31DE2C",
+            "trace": [
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:373:35)",
+              "new DnsValidatedCertificate (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-certificatemanager/lib/dns-validated-certificate.ts:53:31)",
+              "createAcm (/Users/huangxiaochun/workspace/kun/server/iac/acm/index.ts:8:28)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:18:72)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/cdn-cert/CertificateRequestorResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cdncertCertificateRequestorResourceD319AB44",
+            "trace": [
+              "new CustomResource (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/custom-resource.ts:36:21)",
+              "new DnsValidatedCertificate (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-certificatemanager/lib/dns-validated-certificate.ts:73:25)",
+              "createAcm (/Users/huangxiaochun/workspace/kun/server/iac/acm/index.ts:8:28)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:18:72)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/AssetParameters/7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4S3Bucket5BEBDCBE",
+            "trace": [
+              "new FileAssetParameters (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:144:16)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:66:19)",
+              "IacStack.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack.ts:355:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:70:25)",
+              "new Asset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:86:40)",
+              "AssetCode.bind (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/code.ts:180:20)",
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:331:29)",
+              "new DnsValidatedCertificate (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-certificatemanager/lib/dns-validated-certificate.ts:53:31)",
+              "createAcm (/Users/huangxiaochun/workspace/kun/server/iac/acm/index.ts:8:28)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:18:72)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/AssetParameters/7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4S3VersionKey326451BC",
+            "trace": [
+              "new FileAssetParameters (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:144:16)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:66:19)",
+              "IacStack.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack.ts:355:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:70:25)",
+              "new Asset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:86:40)",
+              "AssetCode.bind (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/code.ts:180:20)",
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:331:29)",
+              "new DnsValidatedCertificate (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-certificatemanager/lib/dns-validated-certificate.ts:53:31)",
+              "createAcm (/Users/huangxiaochun/workspace/kun/server/iac/acm/index.ts:8:28)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:18:72)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/AssetParameters/7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4ArtifactHash5E28809B",
+            "trace": [
+              "new FileAssetParameters (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:144:16)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:66:19)",
+              "IacStack.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack.ts:355:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:70:25)",
+              "new Asset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:86:40)",
+              "AssetCode.bind (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/code.ts:180:20)",
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:331:29)",
+              "new DnsValidatedCertificate (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-certificatemanager/lib/dns-validated-certificate.ts:53:31)",
+              "createAcm (/Users/huangxiaochun/workspace/kun/server/iac/acm/index.ts:8:28)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:18:72)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/AssetParameters/8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3Bucket3A65C0E9",
+            "trace": [
+              "new FileAssetParameters (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:144:16)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:66:19)",
+              "IacStack.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack.ts:355:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:70:25)",
+              "new Asset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:86:40)",
+              "AssetCode.bind (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/code.ts:180:20)",
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:331:29)",
+              "createSignUp (/Users/huangxiaochun/workspace/kun/server/iac/lambda/signUp.ts:16:18)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:20:56)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/AssetParameters/8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3VersionKey7A14AC2F",
+            "trace": [
+              "new FileAssetParameters (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:144:16)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:66:19)",
+              "IacStack.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack.ts:355:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:70:25)",
+              "new Asset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:86:40)",
+              "AssetCode.bind (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/code.ts:180:20)",
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:331:29)",
+              "createSignUp (/Users/huangxiaochun/workspace/kun/server/iac/lambda/signUp.ts:16:18)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:20:56)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/AssetParameters/8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8ArtifactHashA6D9BB1A",
+            "trace": [
+              "new FileAssetParameters (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:144:16)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:66:19)",
+              "IacStack.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack.ts:355:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:70:25)",
+              "new Asset (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:86:40)",
+              "AssetCode.bind (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/code.ts:180:20)",
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:331:29)",
+              "createSignUp (/Users/huangxiaochun/workspace/kun/server/iac/lambda/signUp.ts:16:18)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:20:56)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/api-cert/CertificateRequestorFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apicertCertificateRequestorFunctionServiceRoleB3E17BAC",
+            "trace": [
+              "new Role (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-iam/lib/role.ts:199:18)",
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:311:31)",
+              "new DnsValidatedCertificate (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-certificatemanager/lib/dns-validated-certificate.ts:53:31)",
+              "createAcm (/Users/huangxiaochun/workspace/kun/server/iac/acm/index.ts:13:28)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:18:72)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/api-cert/CertificateRequestorFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apicertCertificateRequestorFunctionServiceRoleDefaultPolicy4DD095CD",
+            "trace": [
+              "new Policy (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-iam/lib/policy.ts:89:22)",
+              "Role.addToPrincipalPolicy (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-iam/lib/role.ts:236:28)",
+              "Function.addToRolePolicy (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:146:15)",
+              "new DnsValidatedCertificate (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-certificatemanager/lib/dns-validated-certificate.ts:60:23)",
+              "createAcm (/Users/huangxiaochun/workspace/kun/server/iac/acm/index.ts:13:28)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:18:72)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/api-cert/CertificateRequestorFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apicertCertificateRequestorFunction4487EDD2",
+            "trace": [
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:373:35)",
+              "new DnsValidatedCertificate (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-certificatemanager/lib/dns-validated-certificate.ts:53:31)",
+              "createAcm (/Users/huangxiaochun/workspace/kun/server/iac/acm/index.ts:13:28)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:18:72)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/api-cert/CertificateRequestorResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apicertCertificateRequestorResourceE501F887",
+            "trace": [
+              "new CustomResource (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/custom-resource.ts:36:21)",
+              "new DnsValidatedCertificate (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-certificatemanager/lib/dns-validated-certificate.ts:73:25)",
+              "createAcm (/Users/huangxiaochun/workspace/kun/server/iac/acm/index.ts:13:28)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:18:72)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/signUp/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "signUpServiceRole353D824C",
+            "trace": [
+              "new Role (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-iam/lib/role.ts:199:18)",
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:311:31)",
+              "createSignUp (/Users/huangxiaochun/workspace/kun/server/iac/lambda/signUp.ts:16:18)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:20:56)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/signUp/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "signUp5E93447F",
+            "trace": [
+              "new Function (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function.ts:373:35)",
+              "createSignUp (/Users/huangxiaochun/workspace/kun/server/iac/lambda/signUp.ts:16:18)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:20:56)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-server/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kunserver03F6B131",
+            "trace": [
+              "new RestApi (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:463:22)",
+              "createApiGateway (/Users/huangxiaochun/workspace/kun/server/iac/apiGateway/index.ts:8:31)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:21:69)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-server/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kunserverCloudWatchRole2B83146D",
+            "trace": [
+              "new Role (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-iam/lib/role.ts:199:18)",
+              "RestApi._configureCloudWatchRole (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:289:18)",
+              "new RestApi (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:481:12)",
+              "createApiGateway (/Users/huangxiaochun/workspace/kun/server/iac/apiGateway/index.ts:8:31)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:21:69)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-server/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kunserverAccount07434891",
+            "trace": [
+              "RestApi._configureCloudWatchRole (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:294:22)",
+              "new RestApi (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:481:12)",
+              "createApiGateway (/Users/huangxiaochun/workspace/kun/server/iac/apiGateway/index.ts:8:31)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:21:69)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-server/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kunserverDeployment76B67D6Bdd8a085cd895fee9cadf6d5b34840da2",
+            "trace": [
+              "new Deployment (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/deployment.ts:34:21)",
+              "RestApi._configureDeployment (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:318:32)",
+              "new RestApi (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:484:10)",
+              "createApiGateway (/Users/huangxiaochun/workspace/kun/server/iac/apiGateway/index.ts:8:31)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:21:69)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-server/DeploymentStage.dev/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kunserverDeploymentStagedev14679301",
+            "trace": [
+              "new Stage (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/stage.ts:136:22)",
+              "RestApi._configureDeployment (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:328:30)",
+              "new RestApi (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:484:10)",
+              "createApiGateway (/Users/huangxiaochun/workspace/kun/server/iac/apiGateway/index.ts:8:31)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:21:69)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-server/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kunserverEndpointC8A73A43",
+            "trace": [
+              "RestApi._configureDeployment (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:333:7)",
+              "new RestApi (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:484:10)",
+              "createApiGateway (/Users/huangxiaochun/workspace/kun/server/iac/apiGateway/index.ts:8:31)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:21:69)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-server/CustomDomain/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kunserverCustomDomainBF8C1EDC",
+            "trace": [
+              "new DomainName (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/domain-name.ts:79:22)",
+              "RestApi.addDomainName (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:170:24)",
+              "new RestApi (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:486:12)",
+              "createApiGateway (/Users/huangxiaochun/workspace/kun/server/iac/apiGateway/index.ts:8:31)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:21:69)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-server/CustomDomain/Map:--=>kunserverdevelopmentkunserverE73A9ECA/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kunserverCustomDomainMapkunserverdevelopmentkunserverE73A9ECADB2EE072",
+            "trace": [
+              "new BasePathMapping (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/base-path-mapping.ts:41:5)",
+              "DomainName.addBasePathMapping (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/domain-name.ts:107:12)",
+              "new DomainName (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/domain-name.ts:99:12)",
+              "RestApi.addDomainName (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:170:24)",
+              "new RestApi (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:486:12)",
+              "createApiGateway (/Users/huangxiaochun/workspace/kun/server/iac/apiGateway/index.ts:8:31)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:21:69)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-server/Default/users/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kunserverusersEEB1F1B4",
+            "trace": [
+              "new Resource (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:342:22)",
+              "RootResource.addResource (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:91:12)",
+              "createApiGateway (/Users/huangxiaochun/workspace/kun/server/iac/apiGateway/index.ts:15:42)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:21:69)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-server/Default/users/POST/ApiPermission.kunserverdevelopmentkunserverE73A9ECA.POST..users": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kunserverusersPOSTApiPermissionkunserverdevelopmentkunserverE73A9ECAPOSTusers3BF4BC43",
+            "trace": [
+              "Function.addPermission (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "LambdaIntegration.bind (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:41:18)",
+              "new Method (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:98:36)",
+              "Resource.addMethod (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "createApiGateway (/Users/huangxiaochun/workspace/kun/server/iac/apiGateway/index.ts:16:11)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:21:69)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-server/Default/users/POST/ApiPermission.Test.kunserverdevelopmentkunserverE73A9ECA.POST..users": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kunserverusersPOSTApiPermissionTestkunserverdevelopmentkunserverE73A9ECAPOSTusers117A072D",
+            "trace": [
+              "Function.addPermission (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:130:5)",
+              "LambdaIntegration.bind (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:49:20)",
+              "new Method (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:98:36)",
+              "Resource.addMethod (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "createApiGateway (/Users/huangxiaochun/workspace/kun/server/iac/apiGateway/index.ts:16:11)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:21:69)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-server/Default/users/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kunserverusersPOSTA90DCFF7",
+            "trace": [
+              "new Method (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:116:22)",
+              "Resource.addMethod (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:95:12)",
+              "createApiGateway (/Users/huangxiaochun/workspace/kun/server/iac/apiGateway/index.ts:16:11)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:21:69)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/siteBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteBucket04CDDFA5",
+            "trace": [
+              "new Bucket (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:713:22)",
+              "createS3 (/Users/huangxiaochun/workspace/kun/server/iac/s3/index.ts:8:24)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:27:50)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/siteBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteBucketPolicy19A0789A",
+            "trace": [
+              "new BucketPolicy (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3/lib/bucket-policy.ts:30:21)",
+              "Bucket.addToResourcePolicy (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:227:21)",
+              "Function.addToPrincipalOrResource (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-iam/lib/grant.ts:76:45)",
+              "Bucket.grantPublicAccess (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:328:22)",
+              "new Bucket (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:772:12)",
+              "createS3 (/Users/huangxiaochun/workspace/kun/server/iac/s3/index.ts:8:24)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:27:50)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/SiteBucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SiteBucket",
+            "trace": [
+              "createS3 (/Users/huangxiaochun/workspace/kun/server/iac/s3/index.ts:14:5)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:27:50)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/SiteBucketWebsite": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SiteBucketWebsite",
+            "trace": [
+              "createS3 (/Users/huangxiaochun/workspace/kun/server/iac/s3/index.ts:15:5)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:27:50)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/kun-cdn/CFDistribution": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "kuncdnCFDistribution3C0CF5A4",
+            "trace": [
+              "new CloudFrontWebDistribution (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-cloudfront/lib/web-distribution.ts:566:26)",
+              "createDistribution (/Users/huangxiaochun/workspace/kun/server/iac/cloudfront/index.ts:9:33)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:28:77)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/dns-to-cdn/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dnstocdn652FFFAF",
+            "trace": [
+              "new RecordSet (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:119:23)",
+              "new ARecord (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:146:5)",
+              "createRoute53 (/Users/huangxiaochun/workspace/kun/server/iac/route53/index.ts:18:5)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:32:37)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/AWSCloudFrontPartitionHostedZoneIdMap": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWSCloudFrontPartitionHostedZoneIdMap",
+            "trace": [
+              "Function.getHostedZoneId (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-route53-targets/lib/cloudfront-target.ts:17:7)",
+              "CloudFrontTarget.bind (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-route53-targets/lib/cloudfront-target.ts:36:38)",
+              "new RecordSet (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:124:73)",
+              "new ARecord (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:146:5)",
+              "createRoute53 (/Users/huangxiaochun/workspace/kun/server/iac/route53/index.ts:18:5)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:32:37)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/dns-to-api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dnstoapiC7E96800",
+            "trace": [
+              "new RecordSet (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:119:23)",
+              "new ARecord (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/aws-route53/lib/record-set.ts:146:5)",
+              "createRoute53 (/Users/huangxiaochun/workspace/kun/server/iac/route53/index.ts:23:5)",
+              "new IacStack (/Users/huangxiaochun/workspace/kun/server/iac/lib/iac-stack.ts:32:37)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/kun-server-development/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:22:24)",
+              "/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/private/synthesis.ts:166:5",
+              "visit (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/private/synthesis.ts:231:5)",
+              "visit (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/private/synthesis.ts:227:5)",
+              "injectMetadataResources (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/private/synthesis.ts:157:3)",
+              "Object.synthesize (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/huangxiaochun/workspace/kun/server/node_modules/@aws-cdk/core/lib/stage.ts:94:23)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/iac/bin/iac.ts:25:5)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Module.m._compile (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1310:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/index.ts:1313:12)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "main (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:331:12)",
+              "Object.<anonymous> (/Users/huangxiaochun/workspace/kun/server/node_modules/ts-node/src/bin.ts:482:3)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "/Users/huangxiaochun/.nvm/versions/node/v12.20.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ]
+      },
+      "displayName": "kun-server-development"
+    }
+  }
+}

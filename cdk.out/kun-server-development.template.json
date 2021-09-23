@@ -1,0 +1,958 @@
+{
+  "Resources": {
+    "cdncertCertificateRequestorFunctionServiceRole168BB976": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/cdn-cert/CertificateRequestorFunction/ServiceRole/Resource"
+      }
+    },
+    "cdncertCertificateRequestorFunctionServiceRoleDefaultPolicy3E1BAC39": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "acm:RequestCertificate",
+                "acm:DescribeCertificate",
+                "acm:DeleteCertificate",
+                "acm:AddTagsToCertificate"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "route53:GetChange",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "route53:changeResourceRecordSets",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":route53:::hostedzone/Z06658683HUX1HVG8HHTO"
+                  ]
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "cdncertCertificateRequestorFunctionServiceRoleDefaultPolicy3E1BAC39",
+        "Roles": [
+          {
+            "Ref": "cdncertCertificateRequestorFunctionServiceRole168BB976"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/cdn-cert/CertificateRequestorFunction/ServiceRole/DefaultPolicy/Resource"
+      }
+    },
+    "cdncertCertificateRequestorFunctionBA31DE2C": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4S3Bucket5BEBDCBE"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4S3VersionKey326451BC"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4S3VersionKey326451BC"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "cdncertCertificateRequestorFunctionServiceRole168BB976",
+            "Arn"
+          ]
+        },
+        "Handler": "index.certificateRequestHandler",
+        "Runtime": "nodejs14.x",
+        "Timeout": 900
+      },
+      "DependsOn": [
+        "cdncertCertificateRequestorFunctionServiceRoleDefaultPolicy3E1BAC39",
+        "cdncertCertificateRequestorFunctionServiceRole168BB976"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/cdn-cert/CertificateRequestorFunction/Resource",
+        "aws:asset:path": "asset.7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4",
+        "aws:asset:property": "Code"
+      }
+    },
+    "cdncertCertificateRequestorResourceD319AB44": {
+      "Type": "AWS::CloudFormation::CustomResource",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "cdncertCertificateRequestorFunctionBA31DE2C",
+            "Arn"
+          ]
+        },
+        "DomainName": "*.cdn.hxcstatic.tk",
+        "HostedZoneId": "Z06658683HUX1HVG8HHTO",
+        "Region": "us-east-1"
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/cdn-cert/CertificateRequestorResource/Default"
+      }
+    },
+    "apicertCertificateRequestorFunctionServiceRoleB3E17BAC": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/api-cert/CertificateRequestorFunction/ServiceRole/Resource"
+      }
+    },
+    "apicertCertificateRequestorFunctionServiceRoleDefaultPolicy4DD095CD": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "acm:RequestCertificate",
+                "acm:DescribeCertificate",
+                "acm:DeleteCertificate",
+                "acm:AddTagsToCertificate"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "route53:GetChange",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "route53:changeResourceRecordSets",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":route53:::hostedzone/Z06658683HUX1HVG8HHTO"
+                  ]
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "apicertCertificateRequestorFunctionServiceRoleDefaultPolicy4DD095CD",
+        "Roles": [
+          {
+            "Ref": "apicertCertificateRequestorFunctionServiceRoleB3E17BAC"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/api-cert/CertificateRequestorFunction/ServiceRole/DefaultPolicy/Resource"
+      }
+    },
+    "apicertCertificateRequestorFunction4487EDD2": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4S3Bucket5BEBDCBE"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4S3VersionKey326451BC"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4S3VersionKey326451BC"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "apicertCertificateRequestorFunctionServiceRoleB3E17BAC",
+            "Arn"
+          ]
+        },
+        "Handler": "index.certificateRequestHandler",
+        "Runtime": "nodejs14.x",
+        "Timeout": 900
+      },
+      "DependsOn": [
+        "apicertCertificateRequestorFunctionServiceRoleDefaultPolicy4DD095CD",
+        "apicertCertificateRequestorFunctionServiceRoleB3E17BAC"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/api-cert/CertificateRequestorFunction/Resource",
+        "aws:asset:path": "asset.7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4",
+        "aws:asset:property": "Code"
+      }
+    },
+    "apicertCertificateRequestorResourceE501F887": {
+      "Type": "AWS::CloudFormation::CustomResource",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "apicertCertificateRequestorFunction4487EDD2",
+            "Arn"
+          ]
+        },
+        "DomainName": "*.api.hxcstatic.tk",
+        "HostedZoneId": "Z06658683HUX1HVG8HHTO"
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/api-cert/CertificateRequestorResource/Default"
+      }
+    },
+    "signUpServiceRole353D824C": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/signUp/ServiceRole/Resource"
+      }
+    },
+    "signUp5E93447F": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3Bucket3A65C0E9"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3VersionKey7A14AC2F"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3VersionKey7A14AC2F"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "signUpServiceRole353D824C",
+            "Arn"
+          ]
+        },
+        "Handler": "index.handler",
+        "Runtime": "nodejs14.x",
+        "Timeout": 20
+      },
+      "DependsOn": [
+        "signUpServiceRole353D824C"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/signUp/Resource",
+        "aws:asset:path": "asset.8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8",
+        "aws:asset:property": "Code"
+      }
+    },
+    "kunserver03F6B131": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "Name": "kun-server"
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Resource"
+      }
+    },
+    "kunserverCloudWatchRole2B83146D": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "apigateway.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/CloudWatchRole/Resource"
+      }
+    },
+    "kunserverAccount07434891": {
+      "Type": "AWS::ApiGateway::Account",
+      "Properties": {
+        "CloudWatchRoleArn": {
+          "Fn::GetAtt": [
+            "kunserverCloudWatchRole2B83146D",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "kunserver03F6B131"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Account"
+      }
+    },
+    "kunserverDeployment76B67D6Bdd8a085cd895fee9cadf6d5b34840da2": {
+      "Type": "AWS::ApiGateway::Deployment",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        },
+        "Description": "Automatically created by the RestApi construct"
+      },
+      "DependsOn": [
+        "kunserverusersPOSTA90DCFF7",
+        "kunserverusersEEB1F1B4"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Deployment/Resource"
+      }
+    },
+    "kunserverDeploymentStagedev14679301": {
+      "Type": "AWS::ApiGateway::Stage",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        },
+        "DeploymentId": {
+          "Ref": "kunserverDeployment76B67D6Bdd8a085cd895fee9cadf6d5b34840da2"
+        },
+        "StageName": "dev"
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/DeploymentStage.dev/Resource"
+      }
+    },
+    "kunserverCustomDomainBF8C1EDC": {
+      "Type": "AWS::ApiGateway::DomainName",
+      "Properties": {
+        "DomainName": "dev.api.hxcstatic.tk",
+        "EndpointConfiguration": {
+          "Types": [
+            "REGIONAL"
+          ]
+        },
+        "RegionalCertificateArn": {
+          "Fn::GetAtt": [
+            "apicertCertificateRequestorResourceE501F887",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/CustomDomain/Resource"
+      }
+    },
+    "kunserverCustomDomainMapkunserverdevelopmentkunserverE73A9ECADB2EE072": {
+      "Type": "AWS::ApiGateway::BasePathMapping",
+      "Properties": {
+        "DomainName": {
+          "Ref": "kunserverCustomDomainBF8C1EDC"
+        },
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        },
+        "Stage": {
+          "Ref": "kunserverDeploymentStagedev14679301"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/CustomDomain/Map:--=>kunserverdevelopmentkunserverE73A9ECA/Resource"
+      }
+    },
+    "kunserverusersEEB1F1B4": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "kunserver03F6B131",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "users",
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/users/Resource"
+      }
+    },
+    "kunserverusersPOSTApiPermissionkunserverdevelopmentkunserverE73A9ECAPOSTusers3BF4BC43": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "signUp5E93447F",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:ap-northeast-1:322174828705:",
+              {
+                "Ref": "kunserver03F6B131"
+              },
+              "/",
+              {
+                "Ref": "kunserverDeploymentStagedev14679301"
+              },
+              "/POST/users"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/users/POST/ApiPermission.kunserverdevelopmentkunserverE73A9ECA.POST..users"
+      }
+    },
+    "kunserverusersPOSTApiPermissionTestkunserverdevelopmentkunserverE73A9ECAPOSTusers117A072D": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "signUp5E93447F",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:ap-northeast-1:322174828705:",
+              {
+                "Ref": "kunserver03F6B131"
+              },
+              "/test-invoke-stage/POST/users"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/users/POST/ApiPermission.Test.kunserverdevelopmentkunserverE73A9ECA.POST..users"
+      }
+    },
+    "kunserverusersPOSTA90DCFF7": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "POST",
+        "ResourceId": {
+          "Ref": "kunserverusersEEB1F1B4"
+        },
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:ap-northeast-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "signUp5E93447F",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/users/POST/Resource"
+      }
+    },
+    "siteBucket04CDDFA5": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "WebsiteConfiguration": {
+          "ErrorDocument": "404.html",
+          "IndexDocument": "index.html"
+        }
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/siteBucket/Resource"
+      }
+    },
+    "siteBucketPolicy19A0789A": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "siteBucket04CDDFA5"
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:GetObject",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": "*"
+              },
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::GetAtt": [
+                        "siteBucket04CDDFA5",
+                        "Arn"
+                      ]
+                    },
+                    "/*"
+                  ]
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/siteBucket/Policy/Resource"
+      }
+    },
+    "kuncdnCFDistribution3C0CF5A4": {
+      "Type": "AWS::CloudFront::Distribution",
+      "Properties": {
+        "DistributionConfig": {
+          "Aliases": [
+            "dev.cdn.hxcstatic.tk"
+          ],
+          "DefaultCacheBehavior": {
+            "AllowedMethods": [
+              "GET",
+              "HEAD",
+              "OPTIONS"
+            ],
+            "CachedMethods": [
+              "GET",
+              "HEAD"
+            ],
+            "Compress": true,
+            "DefaultTTL": 86400,
+            "ForwardedValues": {
+              "Cookies": {
+                "Forward": "none"
+              },
+              "QueryString": false
+            },
+            "MaxTTL": 31536000,
+            "MinTTL": 1,
+            "TargetOriginId": "origin1",
+            "ViewerProtocolPolicy": "redirect-to-https"
+          },
+          "DefaultRootObject": "index.html",
+          "Enabled": true,
+          "HttpVersion": "http2",
+          "IPV6Enabled": true,
+          "Origins": [
+            {
+              "ConnectionAttempts": 3,
+              "ConnectionTimeout": 10,
+              "CustomOriginConfig": {
+                "HTTPPort": 80,
+                "HTTPSPort": 443,
+                "OriginKeepaliveTimeout": 5,
+                "OriginProtocolPolicy": "http-only",
+                "OriginReadTimeout": 30,
+                "OriginSSLProtocols": [
+                  "TLSv1.2"
+                ]
+              },
+              "DomainName": {
+                "Fn::Select": [
+                  2,
+                  {
+                    "Fn::Split": [
+                      "/",
+                      {
+                        "Fn::GetAtt": [
+                          "siteBucket04CDDFA5",
+                          "WebsiteURL"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "Id": "origin1"
+            }
+          ],
+          "PriceClass": "PriceClass_200",
+          "ViewerCertificate": {
+            "AcmCertificateArn": {
+              "Fn::GetAtt": [
+                "cdncertCertificateRequestorResourceD319AB44",
+                "Arn"
+              ]
+            },
+            "MinimumProtocolVersion": "TLSv1.2_2021",
+            "SslSupportMethod": "sni-only"
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-cdn/CFDistribution"
+      }
+    },
+    "dnstocdn652FFFAF": {
+      "Type": "AWS::Route53::RecordSet",
+      "Properties": {
+        "Name": "dev.cdn.hxcstatic.tk.",
+        "Type": "A",
+        "AliasTarget": {
+          "DNSName": {
+            "Fn::GetAtt": [
+              "kuncdnCFDistribution3C0CF5A4",
+              "DomainName"
+            ]
+          },
+          "HostedZoneId": {
+            "Fn::FindInMap": [
+              "AWSCloudFrontPartitionHostedZoneIdMap",
+              {
+                "Ref": "AWS::Partition"
+              },
+              "zoneId"
+            ]
+          }
+        },
+        "HostedZoneId": "Z06658683HUX1HVG8HHTO"
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/dns-to-cdn/Resource"
+      }
+    },
+    "dnstoapiC7E96800": {
+      "Type": "AWS::Route53::RecordSet",
+      "Properties": {
+        "Name": "dev.api.hxcstatic.tk.",
+        "Type": "A",
+        "AliasTarget": {
+          "DNSName": {
+            "Fn::GetAtt": [
+              "kunserverCustomDomainBF8C1EDC",
+              "RegionalDomainName"
+            ]
+          },
+          "HostedZoneId": {
+            "Fn::GetAtt": [
+              "kunserverCustomDomainBF8C1EDC",
+              "RegionalHostedZoneId"
+            ]
+          }
+        },
+        "HostedZoneId": "Z06658683HUX1HVG8HHTO"
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/dns-to-api/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/22SwW7CMAyGn2X3ECjT7utacWOrirSdTWpKoEmqxBlCVd99SQqjmnby96euY/9OxrN1xldPr3BxC9Gcl4MwFvmwIxBnVqMz3gpkuXNI4ayVumWF0Y6sF8QK78io36zioOdcgQWFhDaKD0+9p0hb6PtQZmTxykGgJXmQAggVaGjR8lK7T+hkE46a4vGZdaD2DfBh47UgaXQsNucKrZLOBTUyCYoPtemmpmKsTCfFNeUlGpl7XkCcy/E0XtB8ePPijPQGDtmE8YcbTeFRZ67DNL1sQ5cXuIaL0VHey5shd8yFMF4TK7HvzFWhTsVnKhqcGp6gNAqkfg8epryHiu1VQMebk6mXP0f3PaRJ/l3QFulomrSQRCMTnfHNwRpNfCgibyJ/4b6UYd9y7+9Gz/XIrPGEL8G7vMbweJrplkg7pHEcmTYN8pNbfmdrvl6Fx3ZyUi5ssEIq5PUUfwDkcvXHiQIAAA=="
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/CDKMetadata/Default"
+      }
+    }
+  },
+  "Parameters": {
+    "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4S3Bucket5BEBDCBE": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4\""
+    },
+    "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4S3VersionKey326451BC": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4\""
+    },
+    "AssetParameters7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4ArtifactHash5E28809B": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4\""
+    },
+    "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3Bucket3A65C0E9": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8\""
+    },
+    "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3VersionKey7A14AC2F": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8\""
+    },
+    "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8ArtifactHashA6D9BB1A": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8\""
+    }
+  },
+  "Outputs": {
+    "kunserverEndpointC8A73A43": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://",
+            {
+              "Ref": "kunserver03F6B131"
+            },
+            ".execute-api.ap-northeast-1.",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/",
+            {
+              "Ref": "kunserverDeploymentStagedev14679301"
+            },
+            "/"
+          ]
+        ]
+      }
+    },
+    "SiteBucket": {
+      "Value": {
+        "Ref": "siteBucket04CDDFA5"
+      }
+    },
+    "SiteBucketWebsite": {
+      "Value": {
+        "Fn::Select": [
+          2,
+          {
+            "Fn::Split": [
+              "/",
+              {
+                "Fn::GetAtt": [
+                  "siteBucket04CDDFA5",
+                  "WebsiteURL"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "Mappings": {
+    "AWSCloudFrontPartitionHostedZoneIdMap": {
+      "aws": {
+        "zoneId": "Z2FDTNDATAQYW2"
+      },
+      "aws-cn": {
+        "zoneId": "Z3RFFRIM2A3IF5"
+      }
+    }
+  }
+}
