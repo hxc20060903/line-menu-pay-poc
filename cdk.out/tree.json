@@ -343,6 +343,40 @@
                   "fqn": "@aws-cdk/core.Construct",
                   "version": "1.121.0"
                 }
+              },
+              "b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89": {
+                "id": "b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89",
+                "path": "kun-server-development/AssetParameters/b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "kun-server-development/AssetParameters/b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89/S3Bucket",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.121.0"
+                    }
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "kun-server-development/AssetParameters/b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89/S3VersionKey",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.121.0"
+                    }
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "kun-server-development/AssetParameters/b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89/ArtifactHash",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.121.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.121.0"
+                }
               }
             },
             "constructInfo": {
@@ -753,6 +787,170 @@
               "version": "1.121.0"
             }
           },
+          "submitOrder": {
+            "id": "submitOrder",
+            "path": "kun-server-development/submitOrder",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "kun-server-development/submitOrder/ServiceRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "kun-server-development/submitOrder/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.CfnRole",
+                      "version": "1.121.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.Role",
+                  "version": "1.121.0"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "kun-server-development/submitOrder/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "kun-server-development/submitOrder/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.AssetStaging",
+                      "version": "1.121.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "kun-server-development/submitOrder/Code/AssetBucket",
+                    "children": {
+                      "Notifications": {
+                        "id": "Notifications",
+                        "path": "kun-server-development/submitOrder/Code/AssetBucket/Notifications",
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/core.Construct",
+                          "version": "1.121.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-s3.BucketBase",
+                      "version": "1.121.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                  "version": "1.121.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "kun-server-development/submitOrder/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Ref": "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3Bucket0CBCBC27"
+                      },
+                      "s3Key": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::Select": [
+                                0,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3VersionKey17107D0B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Fn::Select": [
+                                1,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3VersionKey17107D0B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "submitOrderServiceRole3E7764F0",
+                        "Arn"
+                      ]
+                    },
+                    "environment": {
+                      "variables": {
+                        "env": "SANDBOX",
+                        "confirmApi": "https://dev.api.hxcstatic.tk/orders/{0}/confirm",
+                        "cancelApi": "https://dev.api.hxcstatic.tk/orders/{0}/cancel",
+                        "lineChannelId": "1656342420",
+                        "lineChannelSecret": "b15c5a820e9fc9875d1e3a544e30e725"
+                      }
+                    },
+                    "handler": "index.handler",
+                    "runtime": "nodejs14.x",
+                    "timeout": 20
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-lambda.CfnFunction",
+                  "version": "1.121.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-lambda.Function",
+              "version": "1.121.0"
+            }
+          },
           "kun-server": {
             "id": "kun-server",
             "path": "kun-server-development/kun-server",
@@ -880,7 +1078,7 @@
                           "Ref": "kunserver03F6B131"
                         },
                         "deploymentId": {
-                          "Ref": "kunserverDeployment76B67D6Bdd8a085cd895fee9cadf6d5b34840da2"
+                          "Ref": "kunserverDeployment76B67D6B645f7bbce91adf1ed85997415310c11c"
                         },
                         "stageName": "dev"
                       }
@@ -1112,6 +1310,171 @@
                                         {
                                           "Fn::GetAtt": [
                                             "signUp5E93447F",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "/invocations"
+                                      ]
+                                    ]
+                                  },
+                                  "integrationHttpMethod": "POST"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-apigateway.CfnMethod",
+                              "version": "1.121.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigateway.Method",
+                          "version": "1.121.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-apigateway.Resource",
+                      "version": "1.121.0"
+                    }
+                  },
+                  "orders": {
+                    "id": "orders",
+                    "path": "kun-server-development/kun-server/Default/orders",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "kun-server-development/kun-server/Default/orders/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                          "aws:cdk:cloudformation:props": {
+                            "parentId": {
+                              "Fn::GetAtt": [
+                                "kunserver03F6B131",
+                                "RootResourceId"
+                              ]
+                            },
+                            "pathPart": "orders",
+                            "restApiId": {
+                              "Ref": "kunserver03F6B131"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigateway.CfnResource",
+                          "version": "1.121.0"
+                        }
+                      },
+                      "POST": {
+                        "id": "POST",
+                        "path": "kun-server-development/kun-server/Default/orders/POST",
+                        "children": {
+                          "ApiPermission.kunserverdevelopmentkunserverE73A9ECA.POST..orders": {
+                            "id": "ApiPermission.kunserverdevelopmentkunserverE73A9ECA.POST..orders",
+                            "path": "kun-server-development/kun-server/Default/orders/POST/ApiPermission.kunserverdevelopmentkunserverE73A9ECA.POST..orders",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                              "aws:cdk:cloudformation:props": {
+                                "action": "lambda:InvokeFunction",
+                                "functionName": {
+                                  "Fn::GetAtt": [
+                                    "submitOrderDE41679F",
+                                    "Arn"
+                                  ]
+                                },
+                                "principal": "apigateway.amazonaws.com",
+                                "sourceArn": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":execute-api:ap-northeast-1:322174828705:",
+                                      {
+                                        "Ref": "kunserver03F6B131"
+                                      },
+                                      "/",
+                                      {
+                                        "Ref": "kunserverDeploymentStagedev14679301"
+                                      },
+                                      "/POST/orders"
+                                    ]
+                                  ]
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                              "version": "1.121.0"
+                            }
+                          },
+                          "ApiPermission.Test.kunserverdevelopmentkunserverE73A9ECA.POST..orders": {
+                            "id": "ApiPermission.Test.kunserverdevelopmentkunserverE73A9ECA.POST..orders",
+                            "path": "kun-server-development/kun-server/Default/orders/POST/ApiPermission.Test.kunserverdevelopmentkunserverE73A9ECA.POST..orders",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                              "aws:cdk:cloudformation:props": {
+                                "action": "lambda:InvokeFunction",
+                                "functionName": {
+                                  "Fn::GetAtt": [
+                                    "submitOrderDE41679F",
+                                    "Arn"
+                                  ]
+                                },
+                                "principal": "apigateway.amazonaws.com",
+                                "sourceArn": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":execute-api:ap-northeast-1:322174828705:",
+                                      {
+                                        "Ref": "kunserver03F6B131"
+                                      },
+                                      "/test-invoke-stage/POST/orders"
+                                    ]
+                                  ]
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                              "version": "1.121.0"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "kun-server-development/kun-server/Default/orders/POST/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                              "aws:cdk:cloudformation:props": {
+                                "httpMethod": "POST",
+                                "resourceId": {
+                                  "Ref": "kunserverordersB33C4668"
+                                },
+                                "restApiId": {
+                                  "Ref": "kunserver03F6B131"
+                                },
+                                "authorizationType": "NONE",
+                                "integration": {
+                                  "type": "AWS_PROXY",
+                                  "uri": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":apigateway:ap-northeast-1:lambda:path/2015-03-31/functions/",
+                                        {
+                                          "Fn::GetAtt": [
+                                            "submitOrderDE41679F",
                                             "Arn"
                                           ]
                                         },

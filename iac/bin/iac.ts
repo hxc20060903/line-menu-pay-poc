@@ -2,9 +2,12 @@
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import { IacStack } from '../lib/iac-stack';
+import { NODE_ENV } from '../env';
 
 const app = new cdk.App();
-const NODE_ENV = process.env.NODE_ENV || 'development';
+
+console.log(process.env.CDK_DEFAULT_ACCOUNT);
+console.log(process.env.CDK_DEFAULT_REGION);
 
 new IacStack(app, `kun-server-${NODE_ENV}`, {
   /* If you don't specify 'env', this stack will be environment-agnostic.

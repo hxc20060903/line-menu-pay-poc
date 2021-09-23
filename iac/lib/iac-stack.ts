@@ -1,6 +1,6 @@
 import * as cdk from '@aws-cdk/core';
 
-import { createSignUp } from '../lambda';
+import { createSignUp, createSubmitOrder } from '../lambda';
 import { createAcm } from '../acm';
 import { createHostZone, createRoute53 } from '../route53';
 import { createApiGateway } from '../apiGateway';
@@ -18,10 +18,12 @@ export class IacStack extends cdk.Stack {
 
     // lambda
     const signUpLambda = createSignUp(this);
+    const submitOrderLambda = createSubmitOrder(this);
     const apiGatewayRestApi = createApiGateway(this, {
       apiCertificate,
       lambda: {
         signUp: signUpLambda,
+        submitOrder: submitOrderLambda,
       },
     });
     const { siteBucket } = createS3(this);

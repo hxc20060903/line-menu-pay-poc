@@ -8,7 +8,10 @@
   "rules": {
     "linebreak-style": ["error", "unix"],
     "func-names": ["error", "as-needed"],
-    "@typescript-eslint/ban-types": "off"
+    "@typescript-eslint/ban-types": "off",
+  },
+  "env": {
+    "node": true
   },
   "overrides": [
     {

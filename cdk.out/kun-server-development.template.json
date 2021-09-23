@@ -421,6 +421,109 @@
         "aws:asset:property": "Code"
       }
     },
+    "submitOrderServiceRole3E7764F0": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/submitOrder/ServiceRole/Resource"
+      }
+    },
+    "submitOrderDE41679F": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3Bucket0CBCBC27"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3VersionKey17107D0B"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3VersionKey17107D0B"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "submitOrderServiceRole3E7764F0",
+            "Arn"
+          ]
+        },
+        "Environment": {
+          "Variables": {
+            "env": "SANDBOX",
+            "confirmApi": "https://dev.api.hxcstatic.tk/orders/{0}/confirm",
+            "cancelApi": "https://dev.api.hxcstatic.tk/orders/{0}/cancel",
+            "lineChannelId": "1656342420",
+            "lineChannelSecret": "b15c5a820e9fc9875d1e3a544e30e725"
+          }
+        },
+        "Handler": "index.handler",
+        "Runtime": "nodejs14.x",
+        "Timeout": 20
+      },
+      "DependsOn": [
+        "submitOrderServiceRole3E7764F0"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/submitOrder/Resource",
+        "aws:asset:path": "asset.b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89",
+        "aws:asset:property": "Code"
+      }
+    },
     "kunserver03F6B131": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
@@ -481,7 +584,7 @@
         "aws:cdk:path": "kun-server-development/kun-server/Account"
       }
     },
-    "kunserverDeployment76B67D6Bdd8a085cd895fee9cadf6d5b34840da2": {
+    "kunserverDeployment76B67D6B645f7bbce91adf1ed85997415310c11c": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -490,6 +593,8 @@
         "Description": "Automatically created by the RestApi construct"
       },
       "DependsOn": [
+        "kunserverordersPOST2DBFE555",
+        "kunserverordersB33C4668",
         "kunserverusersPOSTA90DCFF7",
         "kunserverusersEEB1F1B4"
       ],
@@ -504,7 +609,7 @@
           "Ref": "kunserver03F6B131"
         },
         "DeploymentId": {
-          "Ref": "kunserverDeployment76B67D6Bdd8a085cd895fee9cadf6d5b34840da2"
+          "Ref": "kunserverDeployment76B67D6B645f7bbce91adf1ed85997415310c11c"
         },
         "StageName": "dev"
       },
@@ -672,6 +777,131 @@
       },
       "Metadata": {
         "aws:cdk:path": "kun-server-development/kun-server/Default/users/POST/Resource"
+      }
+    },
+    "kunserverordersB33C4668": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "kunserver03F6B131",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "orders",
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/orders/Resource"
+      }
+    },
+    "kunserverordersPOSTApiPermissionkunserverdevelopmentkunserverE73A9ECAPOSTorders773AE2D4": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "submitOrderDE41679F",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:ap-northeast-1:322174828705:",
+              {
+                "Ref": "kunserver03F6B131"
+              },
+              "/",
+              {
+                "Ref": "kunserverDeploymentStagedev14679301"
+              },
+              "/POST/orders"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/orders/POST/ApiPermission.kunserverdevelopmentkunserverE73A9ECA.POST..orders"
+      }
+    },
+    "kunserverordersPOSTApiPermissionTestkunserverdevelopmentkunserverE73A9ECAPOSTorders1A0C7B10": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "submitOrderDE41679F",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:ap-northeast-1:322174828705:",
+              {
+                "Ref": "kunserver03F6B131"
+              },
+              "/test-invoke-stage/POST/orders"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/orders/POST/ApiPermission.Test.kunserverdevelopmentkunserverE73A9ECA.POST..orders"
+      }
+    },
+    "kunserverordersPOST2DBFE555": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "POST",
+        "ResourceId": {
+          "Ref": "kunserverordersB33C4668"
+        },
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:ap-northeast-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "submitOrderDE41679F",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/orders/POST/Resource"
       }
     },
     "siteBucket04CDDFA5": {
@@ -865,7 +1095,7 @@
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAA/22SwW7CMAyGn2X3ECjT7utacWOrirSdTWpKoEmqxBlCVd99SQqjmnby96euY/9OxrN1xldPr3BxC9Gcl4MwFvmwIxBnVqMz3gpkuXNI4ayVumWF0Y6sF8QK78io36zioOdcgQWFhDaKD0+9p0hb6PtQZmTxykGgJXmQAggVaGjR8lK7T+hkE46a4vGZdaD2DfBh47UgaXQsNucKrZLOBTUyCYoPtemmpmKsTCfFNeUlGpl7XkCcy/E0XtB8ePPijPQGDtmE8YcbTeFRZ67DNL1sQ5cXuIaL0VHey5shd8yFMF4TK7HvzFWhTsVnKhqcGp6gNAqkfg8epryHiu1VQMebk6mXP0f3PaRJ/l3QFulomrSQRCMTnfHNwRpNfCgibyJ/4b6UYd9y7+9Gz/XIrPGEL8G7vMbweJrplkg7pHEcmTYN8pNbfmdrvl6Fx3ZyUi5ssEIq5PUUfwDkcvXHiQIAAA=="
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/22STW/CMAyGf8vuIaz7vA5acWOrirSdTWpKoEmqxBlCVf/7khRGNe3k501cx37djGcPGb+/e4OTm4n6OO+Fscj7DYE4sgqd8VYgWziHFM4aqRuWG+3IekEs946M+s3Kd3rKJVhQSGij+PDUeYq0hq4LZQYWn+wFWpI7KYBQgYYGLS+0+4RW1uGozm/XrAW1rYH3K68FSaNjsSmXaJV0LqiBSVC8r0w7NhVjaVopzikv0cDc4wziXI6n8YLm/dKLI9ISHLIR4wcXGsOtzlSHaTrZhC5PcA4Po6NFJy+GXHEhhPGaWIFda84KdSo+UdHg1PAIhVEg9XvwMOXdVGyvBNpfnEy9/Dm67iFN8u+C1kh7U6eFJBqYaI2vd9Zo4n0eeRX5C7eFDPuWW381eqoHZo0nfA7eLSoMP089vhJpgzQMA9OmRn5w8+/siWev/OXu4KSc2WCFVMirMf4Ah/SoDYkCAAA="
       },
       "Metadata": {
         "aws:cdk:path": "kun-server-development/CDKMetadata/Default"
@@ -896,6 +1126,18 @@
     "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8ArtifactHashA6D9BB1A": {
       "Type": "String",
       "Description": "Artifact hash for asset \"8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8\""
+    },
+    "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3Bucket0CBCBC27": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89\""
+    },
+    "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3VersionKey17107D0B": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89\""
+    },
+    "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89ArtifactHash40EABC17": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89\""
     }
   },
   "Outputs": {

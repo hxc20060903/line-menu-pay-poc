@@ -13,6 +13,7 @@ export const createApiGateway = (
     apiCertificate: ICertificate;
     lambda: {
       signUp: Function;
+      submitOrder: Function;
     };
   }
 ) => {
@@ -26,6 +27,9 @@ export const createApiGateway = (
 
   const users = apiGatewayRestApi.root.addResource('users');
   users.addMethod('POST', new apigateway.LambdaIntegration(lambda.signUp));
+
+  const orders = apiGatewayRestApi.root.addResource('orders');
+  orders.addMethod('POST', new apigateway.LambdaIntegration(lambda.submitOrder));
 
   return apiGatewayRestApi;
 };
