@@ -61,7 +61,7 @@ export const createLinePay = (mode: keyof typeof EndPoint) => {
       headers: {
         'X-LINE-ChannelId': channelId,
         'X-LINE-Authorization': sig,
-        'X-LINE-Authorization-Nonce': sig,
+        'X-LINE-Authorization-Nonce': nonce,
         'Content-Type': 'application/json',
       },
       data,
@@ -111,13 +111,13 @@ export const createLinePay = (mode: keyof typeof EndPoint) => {
         info: {
           transactionId: BigNumber;
           orderId: string;
-          payInfo: Array<{ method: 'BALANCE'; amount: 1000 }>;
+          payInfo: Array<{ method: 'BALANCE'; amount: BigNumber }>;
         };
         packages: Array<{
           id: string;
           amount: BigNumber;
           userFeeAmount: BigNumber;
-          products: Array<{ id: string; name: string; quantity: 2; price: BigNumber }>;
+          products: Array<{ id: string; name: string; quantity: BigNumber; price: BigNumber }>;
         }>;
       } = response.data;
       return result;

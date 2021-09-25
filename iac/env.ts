@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import { isNil } from 'lodash';
 
 dotenv.config();
 
@@ -12,3 +13,15 @@ export const CDN_DOMAIN_NAME = CDN_CERT_DOMAIN_NAME.replace('*', STAGE);
 export const API_DOMAIN_NAME = API_CERT_DOMAIN_NAME.replace('*', STAGE);
 export const LINE_CHANNEL_ID = process.env.LINE_CHANNEL_ID as string;
 export const LINE_CHANNEL_SECRET = process.env.LINE_CHANNEL_SECRET as string;
+export const JWT_SECRET = process.env.JWT_SECRET as string;
+export const JWT_KEY = process.env.JWT_KEY as string;
+export const JWT_IV = process.env.JWT_IV as string;
+
+export const ensureEnv = <T extends object>(environment: T): T => {
+  Object.entries(environment).forEach(([key, value]) => {
+    if (isNil(value)) {
+      throw new Error(`${key} is not properly set`);
+    }
+  });
+  return environment;
+};

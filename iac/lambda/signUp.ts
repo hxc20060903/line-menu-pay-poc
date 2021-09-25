@@ -16,7 +16,9 @@ export const createSignUp = (construct: Construct): lambda.Function => {
     handler: 'index.handler',
     code: lambda.Code.fromAsset(source),
     timeout: Duration.seconds(20),
-    environment: {},
+    environment: {
+      NODE_OPTIONS: '--enable-source-maps',
+    },
   });
 
   return func;

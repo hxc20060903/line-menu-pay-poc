@@ -20,6 +20,8 @@ export const serializeHttpResponse = <Body extends object | string>({
       'X-Content-Type-Options': 'nosniff',
       'Content-Type': 'application/json',
       'Access-Control-Allow-Headers': 'Pragma,X-Content-Type-Options',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     },
     ...(headers || {}),
   },

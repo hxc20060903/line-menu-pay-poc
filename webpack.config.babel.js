@@ -1,10 +1,17 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import path from 'path';
 import glob from 'glob';
 import { fromPairs } from 'lodash';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
 const LAMBDA_SRC = path.resolve('src', 'lambda');
 const LAMBDA_DEST = path.resolve('iac', 'dist');
+
+const analyzeBundle = process.env.ANALYZE_BUNDLE === 'true';
 
 /** @returns {import('webpack').Configuration} */
 module.exports = () => {
@@ -30,13 +37,17 @@ module.exports = () => {
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.json', '.js', '.jsx'],
+      plugins: [new TsconfigPathsPlugin()],
+      alias: {
+        'bignumber.js': path.resolve(__dirname, 'node_modules/bignumber.js/bignumber.js'),
+      },
     },
     optimization: {
       emitOnErrors: false,
       usedExports: true,
     },
     externals: [/^aws-cdk/],
-    plugins: [new CaseSensitivePathsPlugin()],
+    plugins: [new CaseSensitivePathsPlugin(), analyzeBundle && new BundleAnalyzerPlugin()].filter(Boolean),
     module: {
       rules: [
         {

@@ -14,6 +14,7 @@ export const createApiGateway = (
     lambda: {
       signUp: Function;
       submitOrder: Function;
+      confirmOrder: Function;
     };
   }
 ) => {
@@ -25,11 +26,22 @@ export const createApiGateway = (
     },
   });
 
-  const users = apiGatewayRestApi.root.addResource('users');
+  const users = apiGatewayRestApi.root.addResource('users', {
+    defaultCorsPreflightOptions: {
+      allowOrigins: ['*'],
+    },
+  });
   users.addMethod('POST', new apigateway.LambdaIntegration(lambda.signUp));
 
-  const orders = apiGatewayRestApi.root.addResource('orders');
+  const orders = apiGatewayRestApi.root.addResource('orders', {
+    defaultCorsPreflightOptions: {
+      allowOrigins: ['*'],
+    },
+  });
   orders.addMethod('POST', new apigateway.LambdaIntegration(lambda.submitOrder));
+  const orderItem = orders.addResource('{orderId}');
+  const orderItemConfirm = orderItem.addResource('confirm');
+  orderItemConfirm.addMethod('POST', new apigateway.LambdaIntegration(lambda.confirmOrder));
 
   return apiGatewayRestApi;
 };

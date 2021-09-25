@@ -6,6 +6,7 @@ import { createHostZone, createRoute53 } from '../route53';
 import { createApiGateway } from '../apiGateway';
 import { createS3 } from '../s3';
 import { createDistribution } from '../cloudfront';
+import { createConfirmOrder } from '../lambda/confirmOrder';
 
 export class IacStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -19,11 +20,13 @@ export class IacStack extends cdk.Stack {
     // lambda
     const signUpLambda = createSignUp(this);
     const submitOrderLambda = createSubmitOrder(this);
+    const confirmOrderLambda = createConfirmOrder(this);
     const apiGatewayRestApi = createApiGateway(this, {
       apiCertificate,
       lambda: {
         signUp: signUpLambda,
         submitOrder: submitOrderLambda,
+        confirmOrder: confirmOrderLambda,
       },
     });
     const { siteBucket } = createS3(this);

@@ -366,7 +366,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": {
-            "Ref": "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3Bucket3A65C0E9"
+            "Ref": "AssetParameters80bcf2d9558188ed3d61df7f47f4490e6805c4bf9003e1c9ba1b9725c05eb833S3Bucket2434DAF4"
           },
           "S3Key": {
             "Fn::Join": [
@@ -379,7 +379,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3VersionKey7A14AC2F"
+                          "Ref": "AssetParameters80bcf2d9558188ed3d61df7f47f4490e6805c4bf9003e1c9ba1b9725c05eb833S3VersionKey4B98BA35"
                         }
                       ]
                     }
@@ -392,7 +392,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3VersionKey7A14AC2F"
+                          "Ref": "AssetParameters80bcf2d9558188ed3d61df7f47f4490e6805c4bf9003e1c9ba1b9725c05eb833S3VersionKey4B98BA35"
                         }
                       ]
                     }
@@ -408,6 +408,11 @@
             "Arn"
           ]
         },
+        "Environment": {
+          "Variables": {
+            "NODE_OPTIONS": "--enable-source-maps"
+          }
+        },
         "Handler": "index.handler",
         "Runtime": "nodejs14.x",
         "Timeout": 20
@@ -417,7 +422,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "kun-server-development/signUp/Resource",
-        "aws:asset:path": "asset.8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8",
+        "aws:asset:path": "asset.80bcf2d9558188ed3d61df7f47f4490e6805c4bf9003e1c9ba1b9725c05eb833",
         "aws:asset:property": "Code"
       }
     },
@@ -460,7 +465,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": {
-            "Ref": "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3Bucket0CBCBC27"
+            "Ref": "AssetParameters91d05ba0c56c83d1d0d45149e25f5a271cbe426c847d611872452b011a4822ceS3Bucket91D24B05"
           },
           "S3Key": {
             "Fn::Join": [
@@ -473,7 +478,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3VersionKey17107D0B"
+                          "Ref": "AssetParameters91d05ba0c56c83d1d0d45149e25f5a271cbe426c847d611872452b011a4822ceS3VersionKeyDA49EFF1"
                         }
                       ]
                     }
@@ -486,7 +491,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3VersionKey17107D0B"
+                          "Ref": "AssetParameters91d05ba0c56c83d1d0d45149e25f5a271cbe426c847d611872452b011a4822ceS3VersionKeyDA49EFF1"
                         }
                       ]
                     }
@@ -504,11 +509,15 @@
         },
         "Environment": {
           "Variables": {
+            "NODE_OPTIONS": "--enable-source-maps",
             "env": "SANDBOX",
-            "confirmApi": "https://dev.api.hxcstatic.tk/orders/{0}/confirm",
-            "cancelApi": "https://dev.api.hxcstatic.tk/orders/{0}/cancel",
+            "confirmUrl": "https://dev.cdn.hxcstatic.tk/order-confirm",
+            "cancelUrl": "https://dev.cdn.hxcstatic.tk/order-confirm",
             "lineChannelId": "1656342420",
-            "lineChannelSecret": "b15c5a820e9fc9875d1e3a544e30e725"
+            "lineChannelSecret": "b15c5a820e9fc9875d1e3a544e30e725",
+            "jwtIv": "3c7fb752e5b67210",
+            "jwtKey": "b4e74265abb701192dd8cc351d088818",
+            "jwtSecret": "07dcd05e06311a3fbbf481034629c9a7"
           }
         },
         "Handler": "index.handler",
@@ -520,7 +529,112 @@
       ],
       "Metadata": {
         "aws:cdk:path": "kun-server-development/submitOrder/Resource",
-        "aws:asset:path": "asset.b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89",
+        "aws:asset:path": "asset.91d05ba0c56c83d1d0d45149e25f5a271cbe426c847d611872452b011a4822ce",
+        "aws:asset:property": "Code"
+      }
+    },
+    "confirmOrderServiceRole8867B523": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/confirmOrder/ServiceRole/Resource"
+      }
+    },
+    "confirmOrder4380BDAA": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParametersbba42f19fae8a3cb89558a29b3406878d1f3ab47198c9ebcf6f4bf2e4c654cceS3Bucket2A7205E9"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersbba42f19fae8a3cb89558a29b3406878d1f3ab47198c9ebcf6f4bf2e4c654cceS3VersionKeyF3F8817F"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersbba42f19fae8a3cb89558a29b3406878d1f3ab47198c9ebcf6f4bf2e4c654cceS3VersionKeyF3F8817F"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "confirmOrderServiceRole8867B523",
+            "Arn"
+          ]
+        },
+        "Environment": {
+          "Variables": {
+            "NODE_OPTIONS": "--enable-source-maps",
+            "env": "SANDBOX",
+            "lineChannelId": "1656342420",
+            "lineChannelSecret": "b15c5a820e9fc9875d1e3a544e30e725",
+            "jwtIv": "3c7fb752e5b67210",
+            "jwtKey": "b4e74265abb701192dd8cc351d088818",
+            "jwtSecret": "07dcd05e06311a3fbbf481034629c9a7"
+          }
+        },
+        "Handler": "index.handler",
+        "Runtime": "nodejs14.x",
+        "Timeout": 20
+      },
+      "DependsOn": [
+        "confirmOrderServiceRole8867B523"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/confirmOrder/Resource",
+        "aws:asset:path": "asset.bba42f19fae8a3cb89558a29b3406878d1f3ab47198c9ebcf6f4bf2e4c654cce",
         "aws:asset:property": "Code"
       }
     },
@@ -584,7 +698,7 @@
         "aws:cdk:path": "kun-server-development/kun-server/Account"
       }
     },
-    "kunserverDeployment76B67D6B645f7bbce91adf1ed85997415310c11c": {
+    "kunserverDeployment76B67D6B0b689c9e7878fc80474e8b6f59a6a828": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -593,8 +707,15 @@
         "Description": "Automatically created by the RestApi construct"
       },
       "DependsOn": [
+        "kunserverordersorderIdconfirmOPTIONSA4859B24",
+        "kunserverordersorderIdconfirmPOSTBF3E7B42",
+        "kunserverordersorderIdconfirm25890F90",
+        "kunserverordersorderIdOPTIONS05894A40",
+        "kunserverordersorderId1BC2F1B7",
+        "kunserverordersOPTIONS6EB71CC4",
         "kunserverordersPOST2DBFE555",
         "kunserverordersB33C4668",
+        "kunserverusersOPTIONS26E3C748",
         "kunserverusersPOSTA90DCFF7",
         "kunserverusersEEB1F1B4"
       ],
@@ -609,7 +730,7 @@
           "Ref": "kunserver03F6B131"
         },
         "DeploymentId": {
-          "Ref": "kunserverDeployment76B67D6B645f7bbce91adf1ed85997415310c11c"
+          "Ref": "kunserverDeployment76B67D6B0b689c9e7878fc80474e8b6f59a6a828"
         },
         "StageName": "dev"
       },
@@ -670,6 +791,48 @@
       },
       "Metadata": {
         "aws:cdk:path": "kun-server-development/kun-server/Default/users/Resource"
+      }
+    },
+    "kunserverusersOPTIONS26E3C748": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "OPTIONS",
+        "ResourceId": {
+          "Ref": "kunserverusersEEB1F1B4"
+        },
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+              },
+              "StatusCode": "204"
+            }
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }"
+          },
+          "Type": "MOCK"
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Methods": true
+            },
+            "StatusCode": "204"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/users/OPTIONS/Resource"
       }
     },
     "kunserverusersPOSTApiPermissionkunserverdevelopmentkunserverE73A9ECAPOSTusers3BF4BC43": {
@@ -797,6 +960,48 @@
         "aws:cdk:path": "kun-server-development/kun-server/Default/orders/Resource"
       }
     },
+    "kunserverordersOPTIONS6EB71CC4": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "OPTIONS",
+        "ResourceId": {
+          "Ref": "kunserverordersB33C4668"
+        },
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+              },
+              "StatusCode": "204"
+            }
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }"
+          },
+          "Type": "MOCK"
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Methods": true
+            },
+            "StatusCode": "204"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/orders/OPTIONS/Resource"
+      }
+    },
     "kunserverordersPOSTApiPermissionkunserverdevelopmentkunserverE73A9ECAPOSTorders773AE2D4": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
@@ -902,6 +1107,227 @@
       },
       "Metadata": {
         "aws:cdk:path": "kun-server-development/kun-server/Default/orders/POST/Resource"
+      }
+    },
+    "kunserverordersorderId1BC2F1B7": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "kunserverordersB33C4668"
+        },
+        "PathPart": "{orderId}",
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/orders/{orderId}/Resource"
+      }
+    },
+    "kunserverordersorderIdOPTIONS05894A40": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "OPTIONS",
+        "ResourceId": {
+          "Ref": "kunserverordersorderId1BC2F1B7"
+        },
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+              },
+              "StatusCode": "204"
+            }
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }"
+          },
+          "Type": "MOCK"
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Methods": true
+            },
+            "StatusCode": "204"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/orders/{orderId}/OPTIONS/Resource"
+      }
+    },
+    "kunserverordersorderIdconfirm25890F90": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "kunserverordersorderId1BC2F1B7"
+        },
+        "PathPart": "confirm",
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/orders/{orderId}/confirm/Resource"
+      }
+    },
+    "kunserverordersorderIdconfirmOPTIONSA4859B24": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "OPTIONS",
+        "ResourceId": {
+          "Ref": "kunserverordersorderIdconfirm25890F90"
+        },
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+              },
+              "StatusCode": "204"
+            }
+          ],
+          "RequestTemplates": {
+            "application/json": "{ statusCode: 200 }"
+          },
+          "Type": "MOCK"
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Methods": true
+            },
+            "StatusCode": "204"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/orders/{orderId}/confirm/OPTIONS/Resource"
+      }
+    },
+    "kunserverordersorderIdconfirmPOSTApiPermissionkunserverdevelopmentkunserverE73A9ECAPOSTordersorderIdconfirm91C4264C": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "confirmOrder4380BDAA",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:ap-northeast-1:322174828705:",
+              {
+                "Ref": "kunserver03F6B131"
+              },
+              "/",
+              {
+                "Ref": "kunserverDeploymentStagedev14679301"
+              },
+              "/POST/orders/*/confirm"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/orders/{orderId}/confirm/POST/ApiPermission.kunserverdevelopmentkunserverE73A9ECA.POST..orders.{orderId}.confirm"
+      }
+    },
+    "kunserverordersorderIdconfirmPOSTApiPermissionTestkunserverdevelopmentkunserverE73A9ECAPOSTordersorderIdconfirm104A5AED": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "confirmOrder4380BDAA",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:ap-northeast-1:322174828705:",
+              {
+                "Ref": "kunserver03F6B131"
+              },
+              "/test-invoke-stage/POST/orders/*/confirm"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/orders/{orderId}/confirm/POST/ApiPermission.Test.kunserverdevelopmentkunserverE73A9ECA.POST..orders.{orderId}.confirm"
+      }
+    },
+    "kunserverordersorderIdconfirmPOSTBF3E7B42": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "POST",
+        "ResourceId": {
+          "Ref": "kunserverordersorderIdconfirm25890F90"
+        },
+        "RestApiId": {
+          "Ref": "kunserver03F6B131"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:ap-northeast-1:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "confirmOrder4380BDAA",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "kun-server-development/kun-server/Default/orders/{orderId}/confirm/POST/Resource"
       }
     },
     "siteBucket04CDDFA5": {
@@ -1115,29 +1541,41 @@
       "Type": "String",
       "Description": "Artifact hash for asset \"7af6295e521fd55af94332393ceffb3e866aac4dc4956321f7918f21e72199e4\""
     },
-    "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3Bucket3A65C0E9": {
+    "AssetParameters80bcf2d9558188ed3d61df7f47f4490e6805c4bf9003e1c9ba1b9725c05eb833S3Bucket2434DAF4": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8\""
+      "Description": "S3 bucket for asset \"80bcf2d9558188ed3d61df7f47f4490e6805c4bf9003e1c9ba1b9725c05eb833\""
     },
-    "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8S3VersionKey7A14AC2F": {
+    "AssetParameters80bcf2d9558188ed3d61df7f47f4490e6805c4bf9003e1c9ba1b9725c05eb833S3VersionKey4B98BA35": {
       "Type": "String",
-      "Description": "S3 key for asset version \"8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8\""
+      "Description": "S3 key for asset version \"80bcf2d9558188ed3d61df7f47f4490e6805c4bf9003e1c9ba1b9725c05eb833\""
     },
-    "AssetParameters8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8ArtifactHashA6D9BB1A": {
+    "AssetParameters80bcf2d9558188ed3d61df7f47f4490e6805c4bf9003e1c9ba1b9725c05eb833ArtifactHash3DA6324E": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"8692ccf0cabff0bd425e3e600e995aa596f95c5e3d6685de4820e10fd97c43f8\""
+      "Description": "Artifact hash for asset \"80bcf2d9558188ed3d61df7f47f4490e6805c4bf9003e1c9ba1b9725c05eb833\""
     },
-    "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3Bucket0CBCBC27": {
+    "AssetParameters91d05ba0c56c83d1d0d45149e25f5a271cbe426c847d611872452b011a4822ceS3Bucket91D24B05": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89\""
+      "Description": "S3 bucket for asset \"91d05ba0c56c83d1d0d45149e25f5a271cbe426c847d611872452b011a4822ce\""
     },
-    "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89S3VersionKey17107D0B": {
+    "AssetParameters91d05ba0c56c83d1d0d45149e25f5a271cbe426c847d611872452b011a4822ceS3VersionKeyDA49EFF1": {
       "Type": "String",
-      "Description": "S3 key for asset version \"b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89\""
+      "Description": "S3 key for asset version \"91d05ba0c56c83d1d0d45149e25f5a271cbe426c847d611872452b011a4822ce\""
     },
-    "AssetParametersb84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89ArtifactHash40EABC17": {
+    "AssetParameters91d05ba0c56c83d1d0d45149e25f5a271cbe426c847d611872452b011a4822ceArtifactHash388D3A1B": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"b84d1d664c9e426a0fc2c74ba8887d33a58882465a3b41b2df030b2a7d3a8b89\""
+      "Description": "Artifact hash for asset \"91d05ba0c56c83d1d0d45149e25f5a271cbe426c847d611872452b011a4822ce\""
+    },
+    "AssetParametersbba42f19fae8a3cb89558a29b3406878d1f3ab47198c9ebcf6f4bf2e4c654cceS3Bucket2A7205E9": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"bba42f19fae8a3cb89558a29b3406878d1f3ab47198c9ebcf6f4bf2e4c654cce\""
+    },
+    "AssetParametersbba42f19fae8a3cb89558a29b3406878d1f3ab47198c9ebcf6f4bf2e4c654cceS3VersionKeyF3F8817F": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"bba42f19fae8a3cb89558a29b3406878d1f3ab47198c9ebcf6f4bf2e4c654cce\""
+    },
+    "AssetParametersbba42f19fae8a3cb89558a29b3406878d1f3ab47198c9ebcf6f4bf2e4c654cceArtifactHash1353CC3A": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"bba42f19fae8a3cb89558a29b3406878d1f3ab47198c9ebcf6f4bf2e4c654cce\""
     }
   },
   "Outputs": {
